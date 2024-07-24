@@ -30,6 +30,16 @@ export const projects = [
     image: "/linktab.png",
   },
   {
+    name: "Linear",
+    link: "https://linear-clone-swart.vercel.app/",
+    image: "/linear.png",
+  },
+  {
+    name: "TimeSave",
+    link: "https://time-save.vercel.app/",
+    image: "/timesave.png",
+  },
+  {
     name: "Imaginify",
     link: "https://imaginify-umber.vercel.app/",
     image: "/imaginify.png",
