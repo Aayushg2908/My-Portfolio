@@ -15,6 +15,11 @@ export const font2 = localfont({
 
 export const projects = [
   {
+    name: "Perplexity",
+    link: "https://perplexity-clone-nine.vercel.app/",
+    image: "/perplexity.png",
+  },
+  {
     name: "Collabhub",
     link: "https://collab-hub-one.vercel.app/",
     image: "/collabhub.png",
