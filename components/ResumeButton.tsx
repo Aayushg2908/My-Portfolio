@@ -2,12 +2,16 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { MotionDiv } from "./MotionDiv";
+import { useState } from "react";
 
 const ResumeButton = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleResumeDownload = async () => {
     try {
+      setIsLoading(true);
       const res = await fetch(
-        "https://utfs.io/f/97cd7bd7-09fd-41a3-a91e-472e187eca8b-nq87l5.pdf"
+        "https://utfs.io/f/HYo8iqB23ESC44VriHDpWAQBihfLutlMFEH0bXcOeCz3PRjm"
       );
       if (!res.ok) {
         throw new Error("Failed to fetch resume");
@@ -30,6 +34,8 @@ const ResumeButton = () => {
       window.URL.revokeObjectURL(blobUrl);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,7 +57,13 @@ const ResumeButton = () => {
       className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-full group bg-gradient-to-br from-purple-500 to-cyan-500 group-hover:from-purple-500 group-hover:to-cyan-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
     >
       <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-full group-hover:bg-opacity-0 flex gap-x-1 items-center">
-        My Resume <ArrowUpRight />
+        {isLoading ? (
+          "Downloading..."
+        ) : (
+          <>
+            My Resume <ArrowUpRight />
+          </>
+        )}
       </span>
     </MotionDiv>
   );

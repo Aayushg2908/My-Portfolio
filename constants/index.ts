@@ -404,3 +404,11 @@ export const Other_skill = [
     height: 60,
   },
 ];
+
+export const work_experience = [
+  {
+    title: "Full Stack Developer Intern",
+    company: "FusionEdge Solutions",
+    duration: "24 Sept 2024 - Current",
+  },
+];

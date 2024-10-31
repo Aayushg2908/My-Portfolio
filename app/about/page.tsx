@@ -1,6 +1,6 @@
 import { MotionDiv, MotionP } from "@/components/MotionDiv";
 import ResumeButton from "@/components/ResumeButton";
-import { education, font1, font2, socials } from "@/constants";
+import { education, font1, font2, socials, work_experience } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -94,6 +94,53 @@ const AboutPage = () => {
           }}
           className={`text-5xl sm:text-6xl w-fit mb-8 mx-auto ${font1.className}`}
         >
+          WORK EXPERIENCE
+        </MotionDiv>
+        {work_experience.map((exp, index) => (
+          <MotionDiv
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  delay: 2.5 + index * 0.3,
+                  duration: 0.5,
+                },
+              },
+            }}
+            key={index}
+            className="flex flex-col w-full mb-8"
+          >
+            <div
+              className={`text-2xl flex flex-col sm:flex-row w-full items-center justify-between ${font1.className}`}
+            >
+              <span>{exp.company}</span>
+              <span>{exp.duration}</span>
+            </div>
+            <div
+              className={`text-base flex flex-col sm:flex-row w-full items-center justify-between ${font2.className}`}
+            >
+              <span>{exp.title}</span>
+            </div>
+          </MotionDiv>
+        ))}
+        <MotionDiv
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                delay: 3.0,
+                duration: 0.5,
+              },
+            },
+          }}
+          className={`text-5xl sm:text-6xl w-fit mb-8 mx-auto ${font1.className}`}
+        >
           EDUCATION
         </MotionDiv>
         {education.map((edu, index) => (
@@ -105,7 +152,7 @@ const AboutPage = () => {
               visible: {
                 opacity: 1,
                 transition: {
-                  delay: 2.5 + index * 0.3,
+                  delay: 3.0 + index * 0.3,
                   duration: 0.5,
                 },
               },
