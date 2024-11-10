@@ -11,65 +11,47 @@ const AboutPage = () => {
         className={`font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter text-center ${font2.className}`}
       >
         <MotionDiv
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                delay: 1,
-                duration: 0.5,
-              },
-            },
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
           I&apos;m{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500 ">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-500">
             Aayush
           </span>
         </MotionDiv>
       </h1>
       <MotionDiv
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              delay: 1.3,
-              duration: 0.5,
-            },
-          },
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
         className="flex gap-x-4 items-center"
       >
         {socials.map((social, index) => (
-          <Link href={social.link} key={index} target="_blank">
-            <Image
-              src={social.icon}
-              alt={social.name}
-              width={30}
-              height={30}
-              className="w-10 h-10"
-            />
-          </Link>
+          <MotionDiv
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
+            whileHover={{ scale: 1.2, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <Link href={social.link} target="_blank">
+              <Image
+                src={social.icon}
+                alt={social.name}
+                width={30}
+                height={30}
+                className="w-10 h-10"
+              />
+            </Link>
+          </MotionDiv>
         ))}
       </MotionDiv>
       <MotionP
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              delay: 1.6,
-              duration: 0.5,
-            },
-          },
-        }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
         className="text-base sm:text-lg md:text-xl mt-4 text-slate-300 max-w-6xl text-center sm:px-5"
       >
         I am a BTech Undergrad at NSUT, Delhi. I am an aspiring software
@@ -98,20 +80,12 @@ const AboutPage = () => {
         </MotionDiv>
         {work_experience.map((exp, index) => (
           <MotionDiv
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  delay: 2.5 + index * 0.3,
-                  duration: 0.5,
-                },
-              },
-            }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 2.2 + index * 0.2 }}
+            whileHover={{ scale: 1.02, x: 10 }}
             key={index}
-            className="flex flex-col w-full mb-8"
+            className="flex flex-col w-full mb-8 p-4 rounded-lg hover:bg-purple-900/20 transition-colors"
           >
             <div
               className={`text-2xl flex flex-col sm:flex-row w-full items-center justify-between ${font1.className}`}
@@ -145,20 +119,12 @@ const AboutPage = () => {
         </MotionDiv>
         {education.map((edu, index) => (
           <MotionDiv
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  delay: 3.0 + index * 0.3,
-                  duration: 0.5,
-                },
-              },
-            }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 3.0 + index * 0.2 }}
+            whileHover={{ scale: 1.02, x: -10 }}
             key={index}
-            className="flex flex-col w-full mb-8"
+            className="flex flex-col w-full mb-8 px-4 rounded-lg hover:bg-cyan-900/20 transition-colors"
           >
             <div
               className={`text-xl flex flex-col sm:flex-row w-full items-center justify-between ${font1.className}`}

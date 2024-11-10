@@ -27,7 +27,7 @@ const ProjectCard = ({ name, link, image }: ProjectCardProps) => {
       target="_blank"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative inline-flex rounded-3xl overflow-hidden max-h-[20rem] md:max-h-[550px] cursor-pointer max-w-full md:max-w-[47%]"
+      className="relative inline-flex rounded-3xl overflow-hidden max-h-[20rem] md:max-h-[550px] cursor-pointer w-full"
     >
       <Image
         src={image}

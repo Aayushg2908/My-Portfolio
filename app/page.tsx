@@ -4,42 +4,38 @@ import { MotionDiv, MotionP, MotionSpan } from "@/components/MotionDiv";
 
 export default function Home() {
   return (
-    <div className="text-white z-[20] flex flex-col gap-y-8 items-center justify-center px-10 w-full -mt-72 sm:-mt-68 selection:bg-purple-700 selection:text-purple-300">
+    <MotionDiv
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="text-white z-[20] flex flex-col gap-y-8 items-center justify-center px-10 w-full -mt-72 sm:-mt-68 selection:bg-purple-700 selection:text-purple-300"
+    >
       <h1
         className={`font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter text-center ${font2.className}`}
       >
         <MotionSpan
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                delay: 1.3,
-                duration: 0.5,
-              },
-            },
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           Hi. I&apos;m{" "}
-          <span className="bg-gradient-to-r bg-clip-text text-transparent from-purple-500 to-cyan-500">
+          <MotionSpan
+            initial={{ backgroundPosition: "0% 50%" }}
+            animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+            transition={{ duration: 5, repeat: Infinity }}
+            className="bg-gradient-to-r bg-clip-text text-transparent from-purple-500 to-cyan-500 bg-[length:200%_auto]"
+          >
             Aayush.
-          </span>
+          </MotionSpan>
         </MotionSpan>{" "}
         <br />
         <MotionSpan
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                delay: 1.7,
-                duration: 0.5,
-              },
-            },
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            delay: 0.8,
+            ease: "easeOut",
           }}
           className={`text-slate-400 ${font1.className}`}
         >
@@ -47,18 +43,9 @@ export default function Home() {
         </MotionSpan>
       </h1>
       <MotionP
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              delay: 2.1,
-              duration: 0.5,
-            },
-          },
-        }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1.1 }}
         className="text-base sm:text-lg md:text-xl mt-4 text-slate-300"
       >
         I love building full stack software that&apos;s functional, user
@@ -73,24 +60,33 @@ export default function Home() {
           visible: {
             opacity: 1,
             transition: {
-              delay: 2.5,
-              duration: 0.5,
+              staggerChildren: 0.2,
+              delayChildren: 1.4,
             },
           },
         }}
         className="flex gap-6 md:mt-l mt-20 mb-4 px-3 md:px-7"
       >
-        <div className="max-w-content flex flex-col md:flex-row flex-wrap gap-x-10 gap-y-10 md:gap-y-20 mx-auto">
-          {projects.map((project) => (
-            <ProjectCard
+        <div className="max-w-content w-full grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 md:gap-y-20 mx-auto">
+          {projects.map((project, index) => (
+            <MotionSpan
               key={project.name}
-              name={project.name}
-              link={project.link}
-              image={project.image}
-            />
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
+            >
+              <ProjectCard
+                name={project.name}
+                link={project.link}
+                image={project.image}
+              />
+            </MotionSpan>
           ))}
         </div>
       </MotionDiv>
-    </div>
+    </MotionDiv>
   );
 }
