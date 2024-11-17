@@ -27,19 +27,21 @@ const ContactPage = () => {
         initial="hidden"
         animate="visible"
         variants={{
-          hidden: { opacity: 0 },
+          hidden: { opacity: 0, y: 20 },
           visible: {
             opacity: 1,
+            y: 0,
             transition: {
               delay: 1.7,
-              duration: 0.5,
+              duration: 0.7,
+              ease: "easeOut",
             },
           },
         }}
-        className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black border border-neutral-700"
+        className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-gradient-to-br from-zinc-900 to-black border border-purple-500/20 backdrop-blur-sm"
       >
         <h2
-          className={`font-bold text-xl text-neutral-800 dark:text-neutral-200 text-center ${font1.className}`}
+          className={`font-bold text-xl text-neutral-200 text-center mb-2 bg-gradient-to-r from-purple-500 to-purple-200 bg-clip-text text-transparent ${font1.className}`}
         >
           Welcome to My Portfolio
         </h2>
@@ -63,7 +65,9 @@ const ContactPage = () => {
             <Textarea placeholder="We want to hire you in our company!" />
           </LabelInputContainer>
           <button
-            className="bg-gradient-to-br relative from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10"
+            className="bg-gradient-to-r relative from-purple-500 to-purple-700 block w-full text-white rounded-md h-10 
+            hover:from-purple-600 hover:to-purple-800 transition-all duration-300 
+            hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transform hover:scale-[1.01]"
             type="submit"
           >
             Contact
@@ -83,7 +87,13 @@ const LabelInputContainer = ({
 }) => {
   return (
     <div className={`flex flex-col space-y-2 w-full ${className}`}>
-      {children}
+      <MotionDiv
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {children}
+      </MotionDiv>
     </div>
   );
 };
