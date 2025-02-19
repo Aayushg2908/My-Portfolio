@@ -85,7 +85,7 @@ const AboutPage = () => {
             transition={{ duration: 0.5, delay: 2.2 + index * 0.2 }}
             whileHover={{ scale: 1.02, x: 10 }}
             key={index}
-            className="flex flex-col w-full mb-8 p-4 rounded-lg hover:bg-purple-900/20 transition-colors"
+            className="flex flex-col w-full mb-2 p-4 rounded-lg hover:bg-purple-900/20 transition-colors"
           >
             <div
               className={`text-2xl flex flex-col sm:flex-row w-full items-center justify-between ${font1.className}`}
@@ -113,7 +113,7 @@ const AboutPage = () => {
               },
             },
           }}
-          className={`text-5xl sm:text-6xl w-fit mb-8 mx-auto ${font1.className}`}
+          className={`text-5xl sm:text-6xl w-fit mb-8 mt-2 mx-auto ${font1.className}`}
         >
           EDUCATION
         </MotionDiv>

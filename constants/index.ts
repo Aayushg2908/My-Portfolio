@@ -132,6 +132,16 @@ export const socials = [
     link: "https://www.linkedin.com/in/aayush-dubey-0887b8257",
     icon: "/linkedin.png",
   },
+  {
+    name: "X",
+    link: "https://x.com/Aayu_6969",
+    icon: "/x_dark.svg",
+  },
+  {
+    name: "Leetcode",
+    link: "https://leetcode.com/u/Aayush321",
+    icon: "/leetcode.png",
+  },
 ];
 
 export const education = [
@@ -139,7 +149,7 @@ export const education = [
     name: "Netaji Subhas University of Technology",
     degree: "BTech in Information Technology",
     duration: "2022 - 2026",
-    marks: "8.31 CGPA",
+    marks: "8.11 CGPA",
     place: "Dwarka, Delhi, India",
   },
   {
@@ -409,6 +419,11 @@ export const work_experience = [
   {
     title: "Full Stack Developer Intern",
     company: "FusionEdge Solutions",
-    duration: "24 Sept 2024 - Current",
+    duration: "24 Sept 2024 - 31 Jan 2025",
+  },
+  {
+    title: "Full Stack Developer Intern",
+    company: "TNC360",
+    duration: "2 Dec 2024 - 31 Jan 2025",
   },
 ];
