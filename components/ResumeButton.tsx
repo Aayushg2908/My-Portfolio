@@ -11,7 +11,7 @@ const ResumeButton = () => {
     try {
       setIsLoading(true);
       const res = await fetch(
-        "https://zxk2c7rbwj.ufs.sh/f/HYo8iqB23ESCW4juj7dYSnVUKtOqjWug4yXeCPMNGhIHQ8Ta"
+        "https://zxk2c7rbwj.ufs.sh/f/HYo8iqB23ESCHwtmF5HB23ESCBhIvTp4dzF05PH9XNRZmrb1"
       );
       if (!res.ok) {
         throw new Error("Failed to fetch resume");
